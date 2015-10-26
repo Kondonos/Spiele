@@ -1,9 +1,9 @@
 package entity.feature;
 
 public class Effect {
-	String name;
-	double value;
-	boolean isActiv;
+	private String name;
+	private double value;
+	private boolean isActiv;
 	
 	public Effect(String name,double value,boolean isActiv) {
 		this.name=name;
@@ -33,5 +33,12 @@ public class Effect {
 				+"\nValue: "+this.value
 				+"\nisActiv: "+this.isActiv;
 		return s;
+	}
+	@Override
+	public void finalize() throws Throwable {
+		name=null;
+		value=0;
+		isActiv=false;
+		super.finalize();
 	}
 }

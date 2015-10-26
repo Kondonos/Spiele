@@ -1,7 +1,7 @@
 package entity.feature;
 
 public class Attributes {
-	int[] attributes;
+	 private int[] attributes;
 	
 	
 	public Attributes() {
