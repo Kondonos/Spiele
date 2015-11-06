@@ -1,7 +1,5 @@
 package item;
 
-import entity.feature.Effect;
-
 public class Item {
 	private String name,text;
 

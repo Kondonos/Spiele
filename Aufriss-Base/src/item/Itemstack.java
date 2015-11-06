@@ -62,4 +62,9 @@ public class Itemstack {
 	public void setMax(int max) {
 		this.max = max;
 	}
+	@Override
+	public String toString() {
+		String s=this.item.toString()+"\nMaxSize: "+this.max+"\nCurrent: "+this.current;
+		return s;
+	}
 }
