@@ -3,12 +3,8 @@ package keyboard;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.Charset;
 import java.util.StringTokenizer;
 
 public class Keys {
@@ -17,11 +13,12 @@ public class Keys {
 	public Keys(){
 		this.alphabet=new String[3][75];
 		try {
-			InputStream input=getClass().getResourceAsStream("/keyboard/letters.txt");
-			byte[] bytes=new byte[100];
+			BufferedReader br=new BufferedReader(new FileReader(new File("assets/letters.txt")));
 			int i=0;
-			while(input.read(bytes)>0){
-				String value=new String(bytes,"UTF-8");
+			String tmp="";
+			while((tmp=br.readLine())!=null){
+				byte[] inbytes=tmp.getBytes("UTF-8");
+				String value=new String(inbytes);
 				StringTokenizer token=new StringTokenizer(value, "|");
 					String[] values={token.nextToken(),token.nextToken(),token.nextToken()};
 				System.out.println(values[0]+" "+values[1]+" "+values[2]);
@@ -30,7 +27,7 @@ public class Keys {
 				alphabet[2][i]=values[2];
 				i++;
 			}
-			input.close();
+			br.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
