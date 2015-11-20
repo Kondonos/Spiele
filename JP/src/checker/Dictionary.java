@@ -80,10 +80,28 @@ public class Dictionary implements Serializable{
 		((Vocable)this.vocabs.get(romanji)).getMeaning().add(meaning);
 	}
 	
-	public void refresh(){
+	private void updatefile(){
 		File file=new File("./assets/dictionary.dic");
-		if(file.exists())
-			file.delete();
-		 
+		try {
+			FileOutputStream fos = new FileOutputStream(file);
+			ObjectOutput oo = new ObjectOutputStream(fos);
+			oo.writeObject(this.vocabs);
+			oo.flush();
+			oo.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+	}
+		
+	public void addvocab(String romanji, ArrayList<String> meaning, String kana ){
+		this.vocabs.put(romanji, new Vocable(kana, meaning));
+		updatefile();
+	}
+	public HashMap<String, Vocable> getVocabs() {
+		return vocabs;
 	}
 }
