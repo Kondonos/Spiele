@@ -12,22 +12,27 @@ public class Spellchecker {
 	public boolean isWord(String word){
 		word+="$";
 		Node root=spelling.getRoot();
-		boolean is=false;
-		travers(root,word,is);
-		return false;
+		boolean is;
+		is=traverse(root,word);
+		return is;
 	}
 	
-	private boolean traverse(Node current,String word, boolean isword){
+	private boolean traverse(Node current,String word){
 		String[] parts={word.substring(0,1),word.substring(1)};
-		if(isword==false){
-			Node next=current.getChild().get(parts[0]);
-			if(next==null){
-				return false;
-			}else if (isword) {
-				
+		Node next=current.getChild().get(parts[0]);
+		if(next==null){
+			return false;
+		}else{
+			if(!next.isLeaf()){
+				boolean isword=traverse(next, parts[1]);
+				if(isword==true)
+					return true;
+				else
+					return false;
+			}else{
+				return true;
 			}
 		}
 		
-	}
-	
+	}	
 }
