@@ -52,7 +52,8 @@ public class Dictionary implements Serializable{
 					while((tmp=br.readLine())!=null){
 						String value=new String(tmp.getBytes("UTF-8"));
 						StringTokenizer tokenizer=new StringTokenizer(value, "\t");
-						String key=tokenizer.nextToken(), kana=tokenizer.nextToken();
+						String key=tokenizer.nextToken(), 
+								kana=tokenizer.nextToken();
 						StringTokenizer tokenMeaning=new StringTokenizer(tokenizer.nextToken(),";");
 						ArrayList<String> meaning=new ArrayList<>();
 						while(tokenMeaning.countTokens()!=0){
