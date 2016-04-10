@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <MenuBar layoutX="0.0" layoutY="-1.0" prefWidth="600.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Backup" fx:id="Backup" />
+            <MenuItem mnemonicParsing="false" text="Schließen" fx:id="close" />
+            <MenuItem mnemonicParsing="false" text="Beenden" fx:id="exit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <MenuItem mnemonicParsing="false" text="Unspecified Action" fx:id="proporties" />
+            <MenuItem mnemonicParsing="false" text="Unspecified Action" fx:id="Import" />
+            <MenuItem mnemonicParsing="false" text="Unspecified Action" fx:id="newfolder" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <TableView fx:id="content" prefHeight="298.0" prefWidth="555.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Column X" fx:id="name" />
+        <TableColumn prefWidth="75.0" text="Column X" fx:id="type" />
+        <TableColumn prefWidth="75.0" text="Column X" fx:id="upload" />
+        <TableColumn prefWidth="75.0" text="Column X" fx:id="size" />
+      </columns>
+    </TableView>
+    <Button id="close" fx:id="bclose" mnemonicParsing="false" text="Button" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+  </children>
+</AnchorPane>
